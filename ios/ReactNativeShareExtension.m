@@ -18,6 +18,11 @@ NSExtensionContext* extensionContext;
     return nil;
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 RCT_EXPORT_MODULE();
 
 - (void)viewDidLoad {
@@ -34,13 +39,6 @@ RCT_EXPORT_MODULE();
 
     self.view = rootView;
 }
-
-
-+ (BOOL)requiresMainQueueSetup
-{
-    return YES;
-}
-
 
 RCT_EXPORT_METHOD(close) {
     [extensionContext completeRequestReturningItems:nil
